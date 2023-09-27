@@ -26,7 +26,10 @@ def start_threaded_server():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.bind((HOST, PORT))
 
-        # setsockop() does ...
+        # setsockop() is used to set socket options
+        # - SOL_SOCKET: socket option level
+        # - SO_REUSEADDR: immediately reuse previous sockets which were bound
+        # on the same address
         s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
         # allows backlog of up to 2 connections (queue up to 2 conn)

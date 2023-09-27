@@ -7,8 +7,8 @@ def get(host, port):
     payload = b"GET / HTTP/1.1\nHost: " + host.encode("utf-8") + b"\n\n"
 
     # initialize a socket
-    # - AF_INET: the address (and protocol families)
-    # - SOCK_STREAM: socket type
+    # - AF_INET: IPv4, the address (and protocol families)
+    # - SOCK_STREAM: TCP, socket type
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     # connect to designated host
@@ -32,7 +32,7 @@ def get(host, port):
 
 
 # initialize the connection to www.google.com
-get("www.google.com", 80)
+# get("www.google.com", 80)
 
 # initialize the connection to the localhost at port 8080
-# get("localhost", 8080)
+get("localhost", 8080)
